@@ -1,38 +1,14 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import AthleteItem from './AthleteItem';
+import AthleteContext from '../../context/AthleteContext';
 
 function AthleteResults() {
-  const [athletes, setAthletes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { athletes, loading, searchAthletes } = useContext(AthleteContext);
 
   useEffect(() => {
     searchAthletes('tom');
   }, []);
-
-  const searchAthletes = async (query) => {
-    const athletesURL = '     ';
-
-    const response = await axios.get(athletesURL);
-
-    const athletes = await response.data.items;
-
-    const filtered = athletes.filter(
-      (athlete) =>
-        athlete.fullName.toUpperCase().indexOf(query.toUpperCase()) !== -1
-    );
-
-    const mapped = filtered.map((athlete) => {
-      return {
-        id: athlete.id,
-        name: athlete.fullName,
-      };
-    });
-
-    setAthletes(mapped);
-    setLoading(false);
-  };
 
   if (loading) {
     return <Spinner />;
