@@ -1,4 +1,9 @@
+import AthleteResults from '../components/athletes/AthleteResults';
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <AthleteResults />
+    </>
+  );
 }
 export default Home;
