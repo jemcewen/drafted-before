@@ -1,15 +1,22 @@
 import axios from 'axios';
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
+import athleteReducer from './AthleteReducer';
 
 const AthleteContext = createContext();
 
 const ATHLETES_URL = process.env.REACT_APP_ATHLETES_URL;
 
 export const AthleteProvider = ({ children }) => {
-  const [athletes, setAthletes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const initialState = {
+    athletes: [],
+    loading: false,
+  };
+
+  const [state, dispatch] = useReducer(athleteReducer, initialState);
 
   const searchAthletes = async (query) => {
+    setLoading();
+
     const response = await axios.get(ATHLETES_URL);
 
     const athletes = await response.data.items;
@@ -26,12 +33,33 @@ export const AthleteProvider = ({ children }) => {
       };
     });
 
-    setAthletes(mapped);
-    setLoading(false);
+    dispatch({
+      type: 'SEARCH_USERS',
+      payload: mapped,
+    });
+  };
+
+  const setLoading = () => {
+    dispatch({
+      type: 'SET_LOADING',
+    });
+  };
+
+  const clearAthletes = () => {
+    dispatch({
+      type: 'CLEAR_ATHLETES',
+    });
   };
 
   return (
-    <AthleteContext.Provider value={{ athletes, loading, searchAthletes }}>
+    <AthleteContext.Provider
+      value={{
+        athletes: state.athletes,
+        loading: state.loading,
+        searchAthletes,
+        clearAthletes,
+      }}
+    >
       {children}
     </AthleteContext.Provider>
   );

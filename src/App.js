@@ -4,7 +4,7 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Error from './pages/Error';
-import { AthleteProvider } from './context/AthleteContext';
+import { AthleteProvider } from './context/athlete/AthleteContext';
 
 function App() {
   return (
