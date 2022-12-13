@@ -1,17 +1,20 @@
 import { useState, useContext } from 'react';
 import AthleteContext from '../../context/athlete/AthleteContext';
+import AlertContext from '../../context/alert/AlertContext';
 
 function AthleteSearch() {
   const [text, setText] = useState('');
   const { athletes, searchAthletes, clearAthletes } =
     useContext(AthleteContext);
 
+  const { setAlert } = useContext(AlertContext);
+
   const handleChange = (e) => setText(e.target.value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (text === '') {
-      alert('Please enter something');
-      // setAlert('Please enter something', 'error');
+      setAlert('Enter some text to search for a player', 'error');
     } else {
       searchAthletes(text);
       setText('');
