@@ -3,6 +3,7 @@ import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import Athlete from './pages/Athlete';
 import Error from './pages/Error';
 import { AthleteProvider } from './context/athlete/AthleteContext';
 import { AlertProvider } from './context/alert/AlertContext';
@@ -18,6 +19,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
+                <Route path='/athlete/:id' element={<Athlete />} />
                 <Route path='/error' element={<Error />} />
                 <Route path='/*' element={<Error />} />
               </Routes>

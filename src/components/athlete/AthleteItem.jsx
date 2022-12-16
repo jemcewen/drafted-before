@@ -26,7 +26,7 @@ function AthleteItem({ athlete: { name, id } }) {
           <h2 className='card-title'>{name}</h2>
           <Link
             className='text-base-content text-opacity-40'
-            to={`/athletes/${id}`}
+            to={`/athlete/${id}`}
           >
             View draft
           </Link>

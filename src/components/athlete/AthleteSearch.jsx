@@ -14,7 +14,7 @@ function AthleteSearch() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (text === '') {
-      setAlert('Enter some text to search for a player', 'error');
+      setAlert('Please enter some text to search for a player', 'error');
     } else {
       searchAthletes(text);
       setText('');

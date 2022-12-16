@@ -6,6 +6,18 @@ const athleteReducer = (state, action) => {
         athletes: action.payload,
         loading: false,
       };
+    case 'GET_ATHLETE':
+      return {
+        ...state,
+        athlete: action.payload,
+        loading: false,
+      };
+    case 'GET_DRAFT_ATHLETES':
+      return {
+        ...state,
+        draftAthletes: action.payload,
+        loading: false,
+      };
     case 'CLEAR_ATHLETES':
       return {
         ...state,
