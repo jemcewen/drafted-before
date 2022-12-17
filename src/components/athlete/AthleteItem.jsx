@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import headshot from '../layout/assets/headshot.png';
 
-function AthleteItem({ athlete: { name, id } }) {
+function AthleteItem({ athlete: { fullName, id } }) {
   const headshotURL = `https://a.espncdn.com/i/headshots/nfl/players/full/${id}.png`;
 
   return (
@@ -23,7 +23,7 @@ function AthleteItem({ athlete: { name, id } }) {
           </div>
         </div>
         <div>
-          <h2 className='card-title'>{name}</h2>
+          <h2 className='card-title'>{fullName}</h2>
           <Link
             className='text-base-content text-opacity-40'
             to={`/athlete/${id}`}

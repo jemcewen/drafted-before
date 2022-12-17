@@ -5,20 +5,24 @@ import defaultHeadshot from '../components/layout/assets/headshot.png';
 import Spinner from '../components/layout/Spinner';
 import DraftList from '../components/draft/DraftList';
 import AthleteContext from '../context/athlete/AthleteContext';
+import { getAthleteAndDraft } from '../context/athlete/AthleteActions';
 
 function Athlete() {
   const params = useParams();
 
-  const { getAthlete, getDraftAthletes, athlete, draftAthletes, loading } =
+  const { athlete, draftAthletes, loading, dispatch } =
     useContext(AthleteContext);
 
-  const { fullName, headshot, position, draft, active } = athlete;
+  const { fullName, headshot, position, active } = athlete;
 
   useEffect(() => {
+    dispatch({ type: 'SET_LOADING' });
+
     const getAthleteData = async () => {
-      const draftData = await getAthlete(params.id);
-      await getDraftAthletes(draftData.year, draftData.selection);
+      const athleteData = await getAthleteAndDraft(params.id);
+      dispatch({ type: 'GET_ATHLETE_AND_DRAFT', payload: athleteData });
     };
+
     getAthleteData();
   }, []);
 
@@ -56,10 +60,10 @@ function Athlete() {
                 )}
               </h1>
               {position && <h2 className='text-2xl'>{position.displayName}</h2>}
-              {draft ? (
+              {athlete.draft ? (
                 <h2 className='text-xl'>
-                  Drafted in the year {draft.year} with pick
-                  <strong> {draft.selection}</strong>
+                  Drafted in the year {athlete.draft.year} with pick
+                  <strong> {athlete.draft.selection}</strong>
                 </h2>
               ) : (
                 <h2 className='text-xl'>Undrafted</h2>
@@ -67,7 +71,7 @@ function Athlete() {
             </div>
           </div>
         </div>
-        <DraftList draftAthletes={draftAthletes} />
+        {athlete.draft && <DraftList draftAthletes={draftAthletes} />}
       </div>
     </>
   );

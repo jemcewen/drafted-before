@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
 import AthleteContext from '../../context/athlete/AthleteContext';
 import AlertContext from '../../context/alert/AlertContext';
+import { searchAthletes } from '../../context/athlete/AthleteActions';
 
 function AthleteSearch() {
   const [text, setText] = useState('');
-  const { athletes, searchAthletes, clearAthletes } =
-    useContext(AthleteContext);
+  const { athletes, dispatch } = useContext(AthleteContext);
 
   const { setAlert } = useContext(AlertContext);
 
@@ -16,7 +16,9 @@ function AthleteSearch() {
     if (text === '') {
       setAlert('Please enter some text to search for a player', 'error');
     } else {
-      searchAthletes(text);
+      dispatch({ type: 'SET_LOADING' });
+      const athletes = await searchAthletes(text);
+      dispatch({ type: 'SEARCH_ATHLETES', payload: athletes });
       setText('');
     }
   };
@@ -46,7 +48,10 @@ function AthleteSearch() {
       </div>
       {athletes.length > 0 && (
         <div>
-          <button className='btn btn-ghost btn-lg' onClick={clearAthletes}>
+          <button
+            className='btn btn-ghost btn-lg'
+            onClick={() => dispatch({ type: 'CLEAR_ATHLETES' })}
+          >
             Clear
           </button>
         </div>
