@@ -62,6 +62,9 @@ export const getDraftAthletes = async (year, selection) => {
     const team = await axios.get(pick.team['$ref']);
 
     athlete.team = team.data;
+
+    athlete.pick = pick;
+
     draftAthletes.push(athlete);
   }
   return draftAthletes;

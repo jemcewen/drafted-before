@@ -71,7 +71,9 @@ function Athlete() {
             </div>
           </div>
         </div>
-        {athlete.draft && <DraftList draftAthletes={draftAthletes} />}
+        {athlete.draft && (
+          <DraftList draftAthletes={draftAthletes} position={position.name} />
+        )}
       </div>
     </>
   );
