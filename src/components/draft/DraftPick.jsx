@@ -1,10 +1,9 @@
 import defaultHeadshot from '../layout/assets/headshot.png';
 import PropTypes from 'prop-types';
+import DraftStats from './DraftStats';
 
 function DraftAthlete({ athlete }) {
   const { headshot, fullName, position, team, pick } = athlete;
-
-  console.log(athlete);
 
   return (
     <div className='card card-compact card-side shadow-md bg-base-100'>
@@ -27,26 +26,7 @@ function DraftAthlete({ athlete }) {
         </div>
 
         <div className='flex-1'>
-          <div className='w-full rounded-lg shadow-md bg-base-100 stats'>
-            {pick && (
-              <div className='stat'>
-                <div className='stat-title text-md'>Round</div>
-                <div className='text-lg stat-value'>{pick.round}</div>
-              </div>
-            )}
-            {pick && (
-              <div className='stat'>
-                <div className='stat-title text-md'>Pick</div>
-                <div className='text-lg stat-value'>{pick.overall}</div>
-              </div>
-            )}
-            {team && (
-              <div className='stat'>
-                <div className='stat-title text-md'>Team</div>
-                <div className='text-lg stat-value'>{team.abbreviation}</div>
-              </div>
-            )}
-          </div>
+          <DraftStats pick={pick} team={team} />
         </div>
       </div>
     </div>
