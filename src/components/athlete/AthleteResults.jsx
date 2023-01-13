@@ -15,6 +15,15 @@ function AthleteResults() {
   const [currentPage, setCurrentPage] = useState(1);
   const [athletesPerPage] = useState(12);
 
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [currentPage]);
+
   const indexOfLastAthlete = currentPage * athletesPerPage;
   const indexOfFirstAthlete = indexOfLastAthlete - athletesPerPage;
   const currentAthletes = athletes.slice(
@@ -22,8 +31,12 @@ function AthleteResults() {
     indexOfLastAthlete
   );
 
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const previousPage = () => setCurrentPage((prev) => prev - 1);
+  const nextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+  const previousPage = () => {
+    setCurrentPage((prev) => prev - 1);
+  };
 
   if (loading) {
     return <Spinner />;

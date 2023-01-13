@@ -18,8 +18,6 @@ function Athlete() {
   useEffect(() => {
     dispatch({ type: 'SET_LOADING' });
 
-    console.log(athlete.draft);
-
     const getAthleteData = async () => {
       const athleteData = await getAthleteAndDraft(params.id);
       dispatch({ type: 'GET_ATHLETE_AND_DRAFT', payload: athleteData });

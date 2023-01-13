@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Pagination from '../layout/Pagination';
 import DraftPick from './DraftPick';
 import PropTypes from 'prop-types';
@@ -9,6 +9,7 @@ function DraftList({ draftAthletes, position }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [athletesPerPage] = useState(12);
 
+  const myRef = useRef(null);
   const indexOfLastAthlete = currentPage * athletesPerPage;
   const indexOfFirstAthlete = indexOfLastAthlete - athletesPerPage;
   const currentAthletes = draftAthletes.slice(
@@ -16,8 +17,19 @@ function DraftList({ draftAthletes, position }) {
     indexOfLastAthlete
   );
 
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const previousPage = () => setCurrentPage((prev) => prev - 1);
+  const nextPage = () => {
+    setTimeout(() => {
+      myRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+
+    setCurrentPage((prev) => prev + 1);
+  };
+  const previousPage = () => {
+    setTimeout(() => {
+      myRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+    setCurrentPage((prev) => prev - 1);
+  };
 
   const handleChange = () => {
     setFilter(!filter);
@@ -26,16 +38,16 @@ function DraftList({ draftAthletes, position }) {
   return (
     <>
       <div className='rounded-lg shadow-lg card bg-base-100'>
-        <div className='card-body'>
+        <div className='card-body' ref={myRef}>
           <div className='flex items-center justify-between'>
             <h2 className='text-3xl my-4 font-bold card-title'>Draft Order</h2>
             <div>
-              <div class='form-control w-36'>
-                <label class='cursor-pointer label'>
-                  <span class='label-text'>Filter Position</span>
+              <div className='form-control w-36'>
+                <label className='cursor-pointer label'>
+                  <span className='label-text'>Filter Position</span>
                   <input
                     type='checkbox'
-                    class='toggle'
+                    className='toggle'
                     checked={filter}
                     onChange={handleChange}
                   />
