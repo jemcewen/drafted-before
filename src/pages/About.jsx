@@ -1,7 +1,7 @@
 function About() {
   return (
     <>
-      <h1 className='text-6xl mb-8'>Drafted Before</h1>
+      <h1 className='text-6xl mb-8'>Past Drafts</h1>
       <p className='mb-8 text-2xl font-light'>
         <strong>One hundred and ninety eight</strong> players were drafted
         before NFL quarterback Tom Brady in the year 2000. Over twenty years and
