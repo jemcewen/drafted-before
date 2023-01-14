@@ -23,7 +23,6 @@ function Athlete() {
 
     const getAthleteData = async () => {
       const athleteData = await getAthleteAndDraft(params.id);
-      console.log(athleteData);
       dispatch({ type: 'GET_ATHLETE_AND_DRAFT', payload: athleteData });
     };
 
