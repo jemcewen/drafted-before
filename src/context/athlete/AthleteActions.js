@@ -30,7 +30,7 @@ export const getAthleteAndDraft = async (id) => {
 
     let draftAthletes = [];
     if (athlete.draft) {
-      draftAthletes = await getDraftAthletes(
+      draftAthletes = await getDraftPicks(
         athlete.draft.year,
         athlete.draft.selection
       );
@@ -40,7 +40,7 @@ export const getAthleteAndDraft = async (id) => {
   }
 };
 
-export const getDraftAthletes = async (year, selection) => {
+export const getDraftPicks = async (year, selection) => {
   const response = await axios.get(`${DRAFT_URL}/${year}/draft/rounds`);
 
   const draft = response.data.items;
@@ -51,7 +51,7 @@ export const getDraftAthletes = async (year, selection) => {
     allPicks = allPicks.concat(round.picks);
   }
 
-  const draftPicks = allPicks.filter((pick) => pick.overall < selection);
+  const draftPicks = allPicks.filter((pick) => pick.overall <= selection);
 
   const draftAthletes = [];
   for (let pick of draftPicks) {

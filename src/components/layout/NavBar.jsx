@@ -8,7 +8,7 @@ function NavBar() {
         <div className='flex-none px-2 mx-2'>
           <FaFootballBall className='inline pr-2 text-3xl' />
           <Link to='/' className='text-lg font-bold align-middle'>
-            Drafted Before
+            Past Drafts
           </Link>
         </div>
         <div className='flex-1 px-2 mx-2'>

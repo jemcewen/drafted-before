@@ -3,7 +3,7 @@ import Pagination from '../layout/Pagination';
 import DraftPick from './DraftPick';
 import PropTypes from 'prop-types';
 
-function DraftList({ draftAthletes, position }) {
+function DraftList({ draftAthletes, position, year }) {
   const [filter, setFilter] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,7 +40,7 @@ function DraftList({ draftAthletes, position }) {
       <div className='rounded-lg shadow-lg card bg-base-100'>
         <div className='card-body' ref={myRef}>
           <div className='flex items-center justify-between'>
-            <h2 className='text-3xl my-4 font-bold card-title'>Draft Order</h2>
+            <h2 className='text-3xl my-4 font-bold card-title'>{year} Draft</h2>
             <div>
               <div className='form-control w-36'>
                 <label className='cursor-pointer label'>

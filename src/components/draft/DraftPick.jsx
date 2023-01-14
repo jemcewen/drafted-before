@@ -2,19 +2,27 @@ import defaultHeadshot from '../layout/assets/headshot.png';
 import PropTypes from 'prop-types';
 import DraftStats from './DraftStats';
 
-function DraftAthlete({ athlete }) {
+function DraftPick({ athlete }) {
   const { headshot, fullName, position, team, pick } = athlete;
 
   return (
     <div className='card card-compact card-side shadow-md bg-base-100'>
-      <div className='sm:flex md:flex-row items-center space-x-4 card-body bg-gray-800 hover:bg-gray-900 w-full'>
+      <div className='sm:flex md:flex-row items-center  card-body bg-gray-100 hover:bg-gray-200 w-full'>
         <div className='flex-1'>
           <div className='avatar'>
             <div className=' shadow w-32 h-32'>
               {headshot ? (
-                <img src={headshot.href} alt='headshot' />
+                <img
+                  src={headshot.href}
+                  alt='headshot'
+                  className='rounded-lg shadow-xl image-full bg-white'
+                />
               ) : (
-                <img src={defaultHeadshot} alt='headshot' />
+                <img
+                  src={defaultHeadshot}
+                  alt='headshot'
+                  className='rounded-lg shadow-xl image-full bg-white'
+                />
               )}
             </div>
           </div>
@@ -33,7 +41,7 @@ function DraftAthlete({ athlete }) {
   );
 }
 
-DraftAthlete.propTypes = {
+DraftPick.propTypes = {
   athlete: PropTypes.object.isRequired,
 };
-export default DraftAthlete;
+export default DraftPick;

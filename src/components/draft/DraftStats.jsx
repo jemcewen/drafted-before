@@ -4,7 +4,7 @@ function DraftStats({ pick, team }) {
   return (
     <div className='w-full rounded-lg shadow-md bg-base-100 stats'>
       {pick && (
-        <div className='stat'>
+        <div className='stat '>
           <div className='stat-title text-md'>Round</div>
           <div className='text-lg stat-value'>{pick.round}</div>
         </div>

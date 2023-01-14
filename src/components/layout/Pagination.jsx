@@ -9,28 +9,21 @@ const Pagination = ({
   if (totalAthletes > athletesPerPage) {
     return (
       <div className='flex flex-col items-center'>
-        <span className='text-sm text-gray-700 dark:text-gray-400'>
+        <span className='text-sm'>
           Showing{' '}
-          <span className='font-semibold text-gray-900 dark:text-white'>
-            {indexOfFirstAthlete + 1}
-          </span>{' '}
-          to{' '}
-          <span className='font-semibold text-gray-900 dark:text-white'>
+          <span className='font-semibold '>{indexOfFirstAthlete + 1}</span> to{' '}
+          <span className='font-semibold '>
             {totalAthletes < indexOfLastAthlete + 1
               ? totalAthletes
               : indexOfLastAthlete}
           </span>{' '}
-          of{' '}
-          <span className='font-semibold text-gray-900 dark:text-white'>
-            {totalAthletes}
-          </span>{' '}
-          Athletes
+          of <span className='font-semibold'>{totalAthletes}</span> Athletes
         </span>
         <div className='inline-flex mt-2 xs:mt-0'>
           <button
             disabled={indexOfFirstAthlete - athletesPerPage < 0}
             onClick={previousPage}
-            className='inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+            className='inline-flex items-center px-4 py-2 text-sm font-medium rounded-l text-base-content bg-gray-200  hover:bg-gray-300 border-white'
           >
             <svg
               aria-hidden='true'
@@ -50,7 +43,7 @@ const Pagination = ({
           <button
             disabled={indexOfFirstAthlete + athletesPerPage >= totalAthletes}
             onClick={nextPage}
-            className='inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+            className='inline-flex items-center px-4 py-2 text-sm font-medium   border-0 border-l rounded-r text-base-content bg-gray-200  hover:bg-gray-300 border-white'
           >
             Next
             <svg

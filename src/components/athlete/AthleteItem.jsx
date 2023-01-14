@@ -18,16 +18,13 @@ function AthleteItem({ athlete: { fullName, id } }) {
                   e.target.src = headshot;
                 }
               }}
-              className='bg-gray-200'
+              className='bg-gray-100'
             />
           </div>
         </div>
         <div>
           <h2 className='card-title'>{fullName}</h2>
-          <Link
-            className='text-base-content text-opacity-40'
-            to={`/athlete/${id}`}
-          >
+          <Link className='text-base-content ' to={`/athlete/${id}`}>
             View draft
           </Link>
         </div>
