@@ -1,11 +1,8 @@
 import axios from 'axios';
 
-const ATHLETES_URL =
-  'https://sports.core.api.espn.com/v3/sports/football/nfl/athletes?limit=20000';
-const ATHLETE_URL =
-  'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes';
-const DRAFT_URL =
-  'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons';
+const ATHLETES_URL = process.env.REACT_APP_ATHLETES_URL;
+const ATHLETE_URL = process.env.REACT_APP_ATHLETE_URL;
+const DRAFT_URL = process.env.REACT_APP_DRAFT_URL;
 
 export const searchAthletes = async (query) => {
   const response = await axios.get(ATHLETES_URL);
