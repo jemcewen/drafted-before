@@ -6,7 +6,7 @@ function AthleteItem({ athlete: { fullName, id } }) {
 
   return (
     <div className='card card-compact card-side shadow-md bg-base-100 hover:bg-gray-200'>
-      <div className='flex-row items-center space-x-4 card-body'>
+      <div className='flex-row items-center space-x-2 card-body'>
         <div className='avatar'>
           <div className='rounded-full shadow w-32 h-32'>
             <img
@@ -23,7 +23,7 @@ function AthleteItem({ athlete: { fullName, id } }) {
         </div>
         <div>
           <h2 className='card-title'>{fullName}</h2>
-          <Link className='text-base-content ' to={`/athlete/${id}`}>
+          <Link className='text-base-content' to={`/athlete/${id}`}>
             View draft
           </Link>
         </div>

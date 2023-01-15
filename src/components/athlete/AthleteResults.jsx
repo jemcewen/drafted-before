@@ -49,7 +49,7 @@ function AthleteResults() {
           ))}
         </div>
 
-        <div className='mt-6'>
+        <div>
           <Pagination
             athletesPerPage={athletesPerPage}
             totalAthletes={athletes.length}
