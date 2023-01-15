@@ -8,7 +8,7 @@ const Pagination = ({
 }) => {
   if (totalAthletes > athletesPerPage) {
     return (
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center mt-6'>
         <span className='text-sm'>
           Showing{' '}
           <span className='font-semibold '>{indexOfFirstAthlete + 1}</span> to{' '}

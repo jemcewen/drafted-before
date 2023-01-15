@@ -71,7 +71,7 @@ function DraftList({ draftAthletes, position, year }) {
         </div>
       </div>
       {!filter && (
-        <div className='mt-6'>
+        <div>
           <Pagination
             athletesPerPage={athletesPerPage}
             totalAthletes={draftAthletes.length}
