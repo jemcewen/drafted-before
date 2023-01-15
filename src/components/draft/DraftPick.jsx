@@ -28,7 +28,7 @@ function DraftPick({ athlete }) {
           </div>
         </div>
 
-        <div className='flex-1'>
+        <div className='flex-1 '>
           <h2 className='card-title'>{fullName}</h2>
           <p className='text-base-content text-opacity-40'>{position.name}</p>
         </div>

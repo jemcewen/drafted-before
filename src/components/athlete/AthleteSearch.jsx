@@ -32,7 +32,7 @@ function AthleteSearch() {
               <input
                 type='text'
                 className='w-full pr-40 bg-gray-200 input input-lg text-black'
-                placeholder='Search for an NFL player'
+                placeholder='Search for a player'
                 value={text}
                 onChange={handleChange}
               />
