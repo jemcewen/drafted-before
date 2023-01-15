@@ -57,14 +57,14 @@ function Athlete() {
               <h1 className='text-3xl card-title'>
                 {fullName}
                 {athlete.draft && (
-                  <div className='ml-2 mr-1 w-16 badge badge-info'>
+                  <div className='ml-2 w-16 badge badge-info'>
                     {athlete.draft.year}
                   </div>
                 )}
                 {active ? (
                   <div className='mr-1 w-16 badge badge-success'>Active</div>
                 ) : (
-                  <div className='ml-2 mr-1 w-24 badge badge-error'>
+                  <div className='ml-2 mr-1 w-24 badge badge-error truncate'>
                     Not Active
                   </div>
                 )}
