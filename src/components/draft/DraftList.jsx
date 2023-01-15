@@ -44,7 +44,7 @@ function DraftList({ draftAthletes, position, year }) {
             <div>
               <div className='form-control'>
                 <label className='cursor-pointer label'>
-                  <span className='label-text text-base-content text-opacity-60 mr-2'>
+                  <span className='label-text text-base-content text-opacity-60 mr-0.5'>
                     Position
                   </span>
                   <input
