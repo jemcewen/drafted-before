@@ -18,7 +18,7 @@ export const searchAthletes = async (query) => {
 };
 
 export const getAthleteAndDraft = async (id) => {
-  let response = await axios.get(`${ATHLETE_URL}/${id}`);
+  let response = await axios.get(`${ATHLETE_URL}/${id}/`);
 
   if (response.status === 404) {
     window.location = '/notfound';
@@ -38,7 +38,7 @@ export const getAthleteAndDraft = async (id) => {
 };
 
 export const getDraftPicks = async (year, selection) => {
-  const response = await axios.get(`${DRAFT_URL}/${year}/draft/rounds`);
+  const response = await axios.get(`${DRAFT_URL}/${year}/draft/rounds/`);
 
   const draft = response.data.items;
 
