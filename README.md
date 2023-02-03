@@ -1,6 +1,6 @@
 # Past Drafts
 
-NFL wide receiver Amon-Ra St.Brown was drafted with 112th pick in the 2021 draft. St.Brown was insulted that he was not selected earlier in the draft, and out of spite he memorized all 16 wide receivers drafted before him. Hearing [this story](https://www.si.com/extra-mustard/2022/08/17/detroit-lions-amon-ra-st-brown-lists-every-wide-receiver-drafted-before-him) inspired me to create this web application.
+Wide receiver Amon-Ra St.Brown was drafted with pick 112 in the 2021 NFL draft. St.Brown was insulted that he was not selected earlier in the draft, and out of spite he memorized all 16 wide receivers drafted before him. Hearing [this story](https://www.si.com/extra-mustard/2022/08/17/detroit-lions-amon-ra-st-brown-lists-every-wide-receiver-drafted-before-him) inspired me to create this web application.
 
 ## Description
 
