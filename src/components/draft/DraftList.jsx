@@ -41,21 +41,19 @@ function DraftList({ draftAthletes, position, year }) {
         <div className='card-body' ref={myRef}>
           <div className='flex items-center justify-between'>
             <h2 className='text-3xl my-4 font-bold card-title'>{year} Draft</h2>
-            <div>
-              <div className='form-control'>
-                <label className='cursor-pointer label'>
-                  <span className='label-text text-base-content text-opacity-60 mr-0.5'>
-                    Position
-                  </span>
-                  <input
-                    type='checkbox'
-                    className='toggle'
-                    checked={filter}
-                    onChange={handleChange}
-                  />
-                </label>
-              </div>
-            </div>
+          </div>
+          <div className='form-control sm:w-52'>
+            <label className='cursor-pointer label'>
+              <span className='label-text text-base-content text-opacity-60 mr-0.5'>
+                {filter ? <>Showing {position}s</> : <>Showing All Positions</>}
+              </span>
+              <input
+                type='checkbox'
+                className='toggle'
+                checked={filter}
+                onChange={handleChange}
+              />
+            </label>
           </div>
           {filter
             ? draftAthletes
