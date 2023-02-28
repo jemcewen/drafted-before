@@ -54,7 +54,7 @@ function Athlete() {
           </div>
           <div className='col-span-2'>
             <div className='mb-6'>
-              <h1 className='text-3xl card-title'>
+              <h1 className='text-2xl card-title'>
                 {fullName}
                 {athlete.draft && (
                   <div className='ml-2 w-16 badge badge-info'>
@@ -70,7 +70,7 @@ function Athlete() {
                 )}
               </h1>
               {position && (
-                <h2 className='text-2xl mt-2'>{position.displayName}</h2>
+                <h2 className='text-xl mt-2'>{position.displayName}</h2>
               )}
 
               <div className=' mt-6'>
